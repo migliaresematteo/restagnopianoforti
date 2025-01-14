@@ -1,0 +1,94 @@
+.brand-logos-section {
+  padding: 60px 0;
+  background-color: white;
+  overflow: hidden;
+}
+
+.logos-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 20px 0;
+}
+
+.logos-container::before,
+.logos-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  z-index: 2;
+}
+
+.logos-container::before {
+  left: 0;
+  background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.logos-container::after {
+  right: 0;
+  background: linear-gradient(to left, white 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.logos-track {
+  width: fit-content;
+  display: flex;
+}
+
+.logos-scroll {
+  display: flex;
+  gap: 60px;
+  animation: scroll 40s linear infinite;
+}
+
+.logo-item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 80px;
+  padding: 10px;
+}
+
+.logo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(0) contrast(100);
+  opacity: 0.7;
+  transition: all 0.4s ease;
+}
+
+.logo-item:hover img {
+  filter: grayscale(100%) brightness(0) contrast(100);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 3));
+  }
+}
+
+/* Pause animation on hover */
+.logos-container:hover .logos-scroll {
+  animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+  .logo-item {
+    width: 160px;
+    height: 64px;
+  }
+  
+  .logos-scroll {
+    animation-duration: 30s;
+    gap: 40px;
+  }
+}
