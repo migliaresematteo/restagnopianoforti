@@ -11,5 +11,13 @@ length: "NaN cm"
 price: "4.500"
 description: "Questo esemplare è stato fabbricato nel 1903 ed ha beneficiato di un radicale restauro alcuni anni fa. Infatti era stata completamente revisionata la meccanica con sostituzione di martelletti e smorze nonchè di feltri e pelli. Inoltre era stata riparata la tavola armonica che presentava alcune crepe ed erano state sostituite le caviglie. Anche il mobile era stato completamente riverniciato. Il risultato è soddisfacente sviluppando una sonorità potente su tutto l’arco della tastiera. Tiene benissimo l’accordatura  ma,purtroppo, recentemente si sono aperte alcune crepe nel somiere nella regione dei bassi (come si vede dalla foto) e bisognerà pensare che,o prima o dopo,il somiere andrà sostituito con una spesa quantificabile i 6/7000 euro. Per questo motivo il prezzo attuale è così basso."
 featured: true
-images: []
+images:
+  - "/images/pianos/bech-1.jpg"
+  - "/images/pianos/bech-2.jpg"
+  - "/images/pianos/bech1-1.jpg"
+  - "/images/pianos/bech1-2.jpg"
+  - "/images/pianos/bech1-3.jpg"
+  - "/images/pianos/bech1-4.jpg"
+  - "/images/pianos/bech1-5.jpg"
+  - "/images/pianos/bech2-1.jpg"
 ---
