@@ -5,25 +5,30 @@ const matter = require('gray-matter');
 
 // Function to get pianos from markdown files
 const getPianos = () => {
-  const contentDir = path.join(__dirname, '../../content/pianos');
-  const files = fs.readdirSync(contentDir);
-  
-  return files
-    .filter(file => file.endsWith('.md'))
-    .map(file => {
-      const content = fs.readFileSync(path.join(contentDir, file), 'utf8');
-      const { data } = matter(content);
-      return {
-        id: data.id,
-        model: data.model,
-        color: data.color,
-        type: data.type,
-        condition: data.condition,
-        price: data.price,
-        description: data.description
-      };
-    })
-    .sort((a, b) => a.id - b.id);
+  try {
+    const contentDir = path.join(__dirname, '../../content/pianos');
+    const files = fs.readdirSync(contentDir);
+    
+    return files
+      .filter(file => file.endsWith('.md'))
+      .map(file => {
+        const content = fs.readFileSync(path.join(contentDir, file), 'utf8');
+        const { data } = matter(content);
+        return {
+          id: data.id,
+          model: data.model,
+          color: data.color,
+          type: data.type,
+          condition: data.condition,
+          price: data.price,
+          description: data.description
+        };
+      })
+      .sort((a, b) => a.id - b.id);
+  } catch (error) {
+    console.error('Error reading piano data:', error);
+    return [];
+  }
 };
 
 const systemPrompt = `Sei un esperto di pianoforti che lavora per Restagno Pianoforti.
@@ -44,31 +49,24 @@ Se ti vengono chieste informazioni su prezzi o disponibilità:
 - Non inventare o stimare prezzi
 - Se non hai informazioni sufficienti, suggerisci di contattare direttamente il negozio
 
+Se l'utente chiede di contattarci invitalo a chiamare a questo numero: +39 347 519 0187
+
 Il catalogo corrente dei pianoforti è:
-${JSON.stringify(getPianos(), null, 2)}
-
-Ricorda di essere sempre:
-- Professionale e cortese
-- Preciso nelle informazioni tecniche
-- Disponibile per ulteriori chiarimenti
-- Pronto a indirizzare il cliente al negozio per una consulenza personale quando appropriato
-
-Se l'utente chiede di contattarci invitalo a chiamare a questo numero: +39 347 519 0187`;
-
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
+${JSON.stringify(getPianos(), null, 2)}`;
 
 exports.handler = async function(event, context) {
   const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS'
+    'Content-Type': 'application/json',
   };
 
+  // Handle preflight requests
   if (event.httpMethod === 'OPTIONS') {
     return {
-      statusCode: 204,
+      statusCode: 200,
       headers,
-      body: ''
+      body: '',
     };
   }
 
@@ -80,9 +78,18 @@ exports.handler = async function(event, context) {
     };
   }
 
+  if (!process.env.GEMINI_API_KEY) {
+    console.error('GEMINI_API_KEY is not set');
+    return {
+      statusCode: 500,
+      headers,
+      body: JSON.stringify({ error: 'API key is not configured' }),
+    };
+  }
+
   try {
     const { messages } = JSON.parse(event.body);
-    
+
     if (!messages || !Array.isArray(messages)) {
       return {
         statusCode: 400,
@@ -91,8 +98,10 @@ exports.handler = async function(event, context) {
       };
     }
 
+    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-    
+
+    // Format conversation for Gemini
     const conversation = messages.map(msg => 
       `${msg.role === 'user' ? 'Human' : 'Assistant'}: ${msg.content}`
     ).join('\n');
@@ -100,25 +109,23 @@ exports.handler = async function(event, context) {
     const prompt = `${systemPrompt}\n\nConversation:\n${conversation}\nAssistant:`;
 
     const result = await model.generateContent(prompt);
-    const response = result.response.text();
+    const response = await result.response;
+    const text = response.text();
 
     return {
       statusCode: 200,
       headers,
-      body: JSON.stringify({
-        message: response
-      }),
+      body: JSON.stringify({ content: text }),
     };
+
   } catch (error) {
-    console.error('Function error:', error);
-    const errorMessage = error.message || 'Unknown error';
-    
+    console.error('Error:', error);
     return {
       statusCode: 500,
       headers,
       body: JSON.stringify({ 
-        error: 'Failed to process request',
-        details: errorMessage
+        error: 'Si è verificato un errore. Per favore, riprova tra qualche minuto.',
+        details: error.message 
       }),
     };
   }
