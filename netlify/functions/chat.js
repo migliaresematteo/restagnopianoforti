@@ -115,7 +115,7 @@ exports.handler = async function(event, context) {
     return {
       statusCode: 200,
       headers,
-      body: JSON.stringify({ content: text }),
+      body: JSON.stringify({ message: text }),
     };
 
   } catch (error) {
@@ -124,7 +124,7 @@ exports.handler = async function(event, context) {
       statusCode: 500,
       headers,
       body: JSON.stringify({ 
-        error: 'Si è verificato un errore. Per favore, riprova tra qualche minuto.',
+        message: 'Si è verificato un errore. Per favore, riprova tra qualche minuto.',
         details: error.message 
       }),
     };
