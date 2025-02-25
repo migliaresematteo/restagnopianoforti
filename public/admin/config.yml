@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main # Branch to update (optional; defaults to master)
+  branch: master # Branch to update (defaults to master)
 
 media_folder: "public/images/pianos" # Media files will be stored in the repo under public/images/pianos
 public_folder: "/images/pianos" # The src attribute for uploaded media will begin with /images/pianos
