@@ -1,38 +1,70 @@
 import React from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
+import { motion } from 'framer-motion';
+import { KeyboardArrowDown } from '@mui/icons-material';
 import NavigationBar from './Navbar';
-import backgroundImg from '../assets/restagno-pianoforti-in-vendita.jpg';
+import backgroundImg from '../assets/bgh.jpg';
 import './Header.css';
 
-const Header = ({ 
-  title = "Restagno Pianoforti", 
-  subtitle = "Cav. Vincenzo Restagno dal 1908", 
-  ctaText = "Scopri di più",
-  onCtaClick = () => {},
-}) => {
+const Header = ({ title, subtitle, ctaText, onCtaClick }) => {
   return (
     <>
-      <NavigationBar />
-      <div className="header-wrapper" style={{ backgroundImage: `url(${backgroundImg})` }}>
+      <motion.div 
+        className="header-wrapper" 
+        style={{ backgroundImage: `url(${backgroundImg})` }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
         <div className="header-overlay">
           <Container className="header-content">
-            <Row className="text-center">
+            <Row className="text-center mx-0">
               <Col>
-                <h1 className="header-title">{title}</h1>
-                <p className="header-subtitle">{subtitle}</p>
-                <Button 
-                  variant="outline-light" 
-                  size="lg"
-                  className="header-cta"
+                <motion.h1 
+                  className="header-title"
+                  initial={{ y: -50, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                  {title}
+                </motion.h1>
+                <motion.p 
+                  className="header-subtitle"
+                  initial={{ y: 30, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                >
+                  {subtitle}
+                </motion.p>
+                <motion.button 
+                  className="modern-cta-button"
                   onClick={onCtaClick}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.8 }}
                 >
                   {ctaText}
-                </Button>
+                </motion.button>
               </Col>
             </Row>
           </Container>
+          <motion.div 
+            className="scroll-indicator"
+            animate={{ 
+              y: [0, 10, 0],
+            }}
+            transition={{ 
+              duration: 1.5,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
+            <KeyboardArrowDown fontSize="large" />
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

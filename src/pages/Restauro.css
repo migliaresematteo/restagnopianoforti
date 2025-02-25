@@ -1,0 +1,150 @@
+.restauro-page {
+  background-color: #fff;
+}
+
+.restauro-section {
+  position: relative;
+  margin-bottom: 6rem;
+}
+
+.restauro-section:last-child {
+  margin-bottom: 0;
+}
+
+.restauro-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 4rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.restauro-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #000, #333);
+}
+
+.restauro-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.restauro-content {
+  padding: 2rem;
+}
+
+.restauro-section-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #000;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.restauro-section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: linear-gradient(180deg, #000, #333);
+  border-radius: 2px;
+}
+
+.section-text {
+  color: #666;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.summary-box {
+  background: linear-gradient(45deg, rgba(0,0,0,0.02), rgba(0,0,0,0.05));
+  border-left: 4px solid #000;
+  padding: 1.5rem;
+  border-radius: 0 15px 15px 0;
+  margin: 2rem 0;
+}
+
+.summary-box h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+.summary-box ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.summary-box li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+
+.summary-box li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #000;
+}
+
+.restauro-icon-box {
+  background: linear-gradient(45deg, #000, #333);
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.image-caption {
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+@media (max-width: 991px) {
+  .restauro-section {
+    margin-bottom: 4rem;
+  }
+  
+  .restauro-image-container {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .restauro-title {
+    font-size: 2rem;
+  }
+  
+  .restauro-section-title {
+    font-size: 1.5rem;
+  }
+  
+  .section-text {
+    font-size: 1rem;
+  }
+  
+  .summary-box {
+    margin: 1.5rem 0;
+  }
+}

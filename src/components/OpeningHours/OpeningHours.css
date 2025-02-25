@@ -1,0 +1,49 @@
+.opening-hours {
+  margin: 0;
+  padding: 0;
+}
+
+.opening-hours h5.footer-heading {
+  text-align: center;
+}
+
+.opening-hours table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin: 0 auto;
+}
+
+.opening-hours th,
+.opening-hours td {
+  padding: 0.5rem 2rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.opening-hours th {
+  font-weight: 600;
+  color: #333;
+}
+
+.opening-hours tr:last-child td {
+  border-bottom: none;
+}
+
+.opening-hours tr:hover {
+  background-color: #f8f9fa;
+}
+
+@media (max-width: 768px) {
+  .opening-hours th,
+  .opening-hours td {
+    padding: 0.4rem 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .opening-hours th,
+  .opening-hours td {
+    padding: 0.4rem 0.5rem;
+  }
+}

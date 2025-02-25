@@ -1,0 +1,132 @@
+.modern-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Variants */
+.modern-button--primary {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.modern-button--primary:hover {
+  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.modern-button--secondary {
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  color: #1a1a1a;
+}
+
+.modern-button--secondary:hover {
+  background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+}
+
+.modern-button--outline {
+  background: transparent;
+  border: 2px solid #1a1a1a;
+  color: #1a1a1a;
+}
+
+.modern-button--outline:hover {
+  background: rgba(26, 26, 26, 0.05);
+}
+
+.modern-button--text {
+  background: transparent;
+  color: #1a1a1a;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.modern-button--text:hover {
+  background: rgba(26, 26, 26, 0.05);
+}
+
+/* Sizes */
+.modern-button--small {
+  padding: 8px 16px;
+  font-size: 0.875rem;
+}
+
+.modern-button--medium {
+  padding: 12px 24px;
+  font-size: 1rem;
+}
+
+.modern-button--large {
+  padding: 16px 32px;
+  font-size: 1.125rem;
+}
+
+/* Full width */
+.modern-button--full-width {
+  width: 100%;
+}
+
+/* Disabled state */
+.modern-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Icon styling */
+.modern-button__icon {
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+}
+
+/* Glass effect variant */
+.modern-button--glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.modern-button--glass:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .modern-button--secondary {
+    background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+    color: white;
+  }
+  
+  .modern-button--secondary:hover {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  }
+  
+  .modern-button--outline {
+    border-color: white;
+    color: white;
+  }
+  
+  .modern-button--outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .modern-button--text {
+    color: white;
+  }
+  
+  .modern-button--text:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}

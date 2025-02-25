@@ -1,0 +1,18 @@
+.map-section {
+  background-color: #fff;
+}
+
+.map-container {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.map-container iframe {
+  filter: grayscale(1);
+  transition: filter 0.3s ease;
+}
+
+.map-container:hover iframe {
+  filter: grayscale(0);
+}

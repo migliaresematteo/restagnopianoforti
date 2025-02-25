@@ -1,37 +1,27 @@
 import React from 'react';
-import yamahaLogo from '../assets/yamaha.png';
-import steinwayLogo from '../assets/s&s.png';
-import kawaiLogo from '../assets/kawai.png';
-import bosendorferLogo from '../assets/bose.png';
-import fazioliLogo from '../assets/fazioli.png';
-import bechsteinLogo from '../assets/bechstein.png';
 import './BrandLogos.css';
+import yamaha from '../assets/yamaha.png';
+import steinway from '../assets/s&s.png';
+import bechstein from '../assets/bechstein.png';
+import kawai from '../assets/kawai.png';
 
 const BrandLogos = () => {
-  const brands = [
-    { name: 'Yamaha', logo: yamahaLogo },
-    { name: 'Steinway & Sons', logo: steinwayLogo },
-    { name: 'Kawai', logo: kawaiLogo },
-    { name: 'Bechstein', logo: bechsteinLogo },
-    { name: 'Fazioli', logo: fazioliLogo },
-
-  ];
-
-  // Create three sets of logos for seamless scrolling
-  const scrollContent = [...brands, ...brands, ...brands];
+  const logos = [yamaha, steinway, bechstein, kawai];
+  // Duplicate logos to ensure smooth infinite scroll
+  const duplicatedLogos = [...logos, ...logos, ...logos];
 
   return (
     <section className="brand-logos-section">
       <div className="logos-container">
+        <div className="fade-edge fade-left"></div>
         <div className="logos-track">
-          <div className="logos-scroll">
-            {scrollContent.map((brand, index) => (
-              <div key={`brand-${index}`} className="logo-item">
-                <img src={brand.logo} alt={brand.name} />
-              </div>
-            ))}
-          </div>
+          {duplicatedLogos.map((logo, index) => (
+            <div key={index} className="logo-item">
+              <img src={logo} alt={`Brand Logo ${index + 1}`} />
+            </div>
+          ))}
         </div>
+        <div className="fade-edge fade-right"></div>
       </div>
     </section>
   );

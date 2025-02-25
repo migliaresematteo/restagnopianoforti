@@ -1,0 +1,154 @@
+.expertise-section {
+  padding: 5rem 2rem;
+  background: #ffffff;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.expertise-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.expertise-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.expertise-header .subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.expertise-timeline {
+  position: relative;
+  padding-left: 3rem;
+}
+
+.expertise-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px; /* Align with the first dot */
+  bottom: 8px; /* Align with the last dot */
+  width: 2px;
+  background: linear-gradient(to bottom, 
+    rgba(26, 26, 26, 0.1) 0%,
+    rgba(26, 26, 26, 0.1) 100%
+  );
+}
+
+.timeline-section {
+  position: relative;
+  margin-bottom: 4rem;
+  padding-left: 2rem;
+}
+
+.timeline-section::before {
+  content: '';
+  position: absolute;
+  left: -3rem;
+  top: 8px; /* Align with the line */
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  border: 3px solid white;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
+}
+
+.section-icon {
+  position: absolute;
+  left: -4rem;
+  top: -4px; /* Adjust to align with the dot */
+  width: 40px;
+  height: 40px;
+  background: #1a1a1a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.section-content {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.section-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+}
+
+.section-content h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 1.5rem 0 1rem;
+}
+
+.section-content p {
+  color: #4a4a4a;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.case-study {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.case-study:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.technical-explanation {
+  margin-bottom: 2rem;
+}
+
+.technical-explanation:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .expertise-section {
+    padding: 3rem 1rem;
+  }
+
+  .expertise-header h2 {
+    font-size: 2rem;
+  }
+
+  .expertise-timeline {
+    padding-left: 2rem;
+  }
+
+  .timeline-section {
+    padding-left: 1rem;
+  }
+
+  .section-icon {
+    left: -3rem;
+    width: 32px;
+    height: 32px;
+  }
+
+  .section-content {
+    padding: 1.5rem;
+  }
+}

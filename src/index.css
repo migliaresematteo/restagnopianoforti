@@ -1,0 +1,53 @@
+/* Section spacing */
+section {
+  padding: 5rem 0;
+}
+
+section + section {
+  padding-top: 0;
+}
+
+/* Elegant HR with music note */
+.elegant-hr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.hr-line {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #000, transparent);
+  flex-grow: 1;
+  max-width: 100px;
+}
+
+.hr-icon {
+  font-size: 1.5rem;
+  color: #000;
+  opacity: 0.8;
+  line-height: 1;
+}
+
+/* Section titles */
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 3rem 0;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .hr-line {
+    max-width: 60px;
+  }
+}

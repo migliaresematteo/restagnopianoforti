@@ -1,0 +1,30 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+media_folder: "public/images/pianos" # Media files will be stored in the repo under public/images/pianos
+public_folder: "/images/pianos" # The src attribute for uploaded media will begin with /images/pianos
+
+collections:
+  - name: "pianos"
+    label: "Pianos"
+    folder: "content/pianos"
+    create: true
+    slug: "{{model}}"
+    fields:
+      - {label: "ID", name: "id", widget: "number"}
+      - {label: "Model", name: "model", widget: "string"}
+      - {label: "Color", name: "color", widget: "string"}
+      - {label: "Color Code", name: "colorCode", widget: "string"}
+      - {label: "Type", name: "type", widget: "select", options: ["Verticale", "Coda"]}
+      - {label: "Condition", name: "condition", widget: "select", options: ["Nuovo", "Restaurato", "Usato"]}
+      - {label: "Production Date", name: "productionDate", widget: "string"}
+      - {label: "Height", name: "height", widget: "string"}
+      - {label: "Length", name: "length", widget: "string"}
+      - {label: "Price", name: "price", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false}
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        field: {label: Image, name: image, widget: image}

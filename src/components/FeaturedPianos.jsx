@@ -1,65 +1,44 @@
 import React from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import './FeaturedPianos.css';
+import { Container, Row, Col } from 'react-bootstrap';
+import { getRandomFeaturedPianos } from '../data/pianos';
+import PianoCard from './PianoCard';
 
-const FeaturedPianos = () => {
-  const featuredPianos = [
-    {
-      id: 1,
-      name: 'Yamaha C3X',
-      image: '/path-to-yamaha-c3x.jpg',
-      description: 'Pianoforte a coda professionale, perfetto per sale da concerto e conservatori.',
-      price: '€45.000'
-    },
-    {
-      id: 2,
-      name: 'Steinway Model B',
-      image: '/path-to-steinway-b.jpg',
-      description: 'Il "pianoforte da salotto" per eccellenza, suono ricco e potente.',
-      price: '€85.000'
-    },
-    {
-      id: 3,
-      name: 'Kawai K-500',
-      image: '/path-to-kawai-k500.jpg',
-      description: 'Pianoforte verticale di alta qualità, ideale per studio e casa.',
-      price: '€15.000'
-    }
-  ];
+const FeaturedPianos = ({ pianos }) => {
+  const displayPianos = pianos || getRandomFeaturedPianos(3);
+
+  const adaptPianoData = (piano) => ({
+    ...piano,
+    name: piano.model,
+    image: piano.images[0],
+    year: piano.productionDate,
+    length: piano.dimensions.length,
+    height: piano.dimensions.height,
+  });
 
   return (
-    <section id="pianoforti" className="featured-pianos-section">
+    <section className="featured-pianos py-5">
       <Container>
-        <h2 className="section-title text-center">I Nostri Pianoforti</h2>
-        <p className="section-subtitle text-center mb-5">
-          Selezione dei migliori strumenti disponibili
-        </p>
-        
+        {!pianos && (
+          <div className="featured-pianos-header text-center mb-5">
+            <h2 className="section-title mb-3">Pianoforti in Evidenza</h2>
+            <div className="elegant-hr mb-4">
+              <div className="hr-line"></div>
+              <div className="hr-icon">♪</div>
+              <div className="hr-line"></div>
+            </div>
+            <p className="text-muted">
+              Scopri la nostra selezione di pianoforti di alta qualità, accuratamente scelti per offrire 
+              il meglio in termini di suono, estetica e performance.
+            </p>
+          </div>
+        )}
         <Row>
-          {featuredPianos.map((piano) => (
-            <Col key={piano.id} lg={4} md={6} className="mb-4">
-              <Card className="piano-card">
-                <div className="piano-image-wrapper">
-                  <Card.Img variant="top" src={piano.image} className="piano-image" />
-                </div>
-                <Card.Body>
-                  <Card.Title>{piano.name}</Card.Title>
-                  <Card.Text>{piano.description}</Card.Text>
-                  <div className="piano-price">{piano.price}</div>
-                </Card.Body>
-              </Card>
+          {displayPianos.map((piano) => (
+            <Col key={piano.id} lg={4} className="mb-4">
+              <PianoCard piano={adaptPianoData(piano)} />
             </Col>
           ))}
         </Row>
-        
-        <div className="text-center mt-5">
-          <Link to="/shop">
-            <Button variant="outline-dark" size="lg" className="view-all-btn">
-              Vedi tutti i pianoforti
-            </Button>
-          </Link>
-        </div>
       </Container>
     </section>
   );

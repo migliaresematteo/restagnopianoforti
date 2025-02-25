@@ -1,64 +1,105 @@
 .about-section {
-  padding: 100px 0;
-  background-color: #f8f9fa;
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.about-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #333;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    position: relative;
 }
 
 .section-subtitle {
-  font-size: 1.2rem;
-  color: #666;
-  margin-bottom: 2rem;
+    color: #666;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.title-separator {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(to right, #000, transparent);
+    margin: 1rem 0 2rem 0;
+    border: none;
 }
 
 .about-text {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    flex-grow: 1;
 }
 
 .about-text p {
-  margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .about-image-container {
-  position: relative;
-  padding-top: 75%; /* 4:3 Aspect Ratio */
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    height: 100%;
 }
 
 .about-image-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 650px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .about-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
 }
 
 .about-image:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 @media (max-width: 991px) {
-  .about-section {
-    padding: 60px 0;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-  }
+    .about-section {
+        padding: 60px 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+
+    .about-section .container {
+        display: flex;
+        align-items: center;
+        min-height: calc(100vh - 120px);
+    }
+
+    .about-section .row {
+        width: 100%;
+    }
+
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .title-separator {
+        margin: 1rem auto 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .about-image-wrapper {
+        height: 400px;
+        margin-top: 2rem;
+    }
 }

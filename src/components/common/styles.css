@@ -1,0 +1,90 @@
+/* Common Styles */
+.page-section {
+  margin-bottom: 4rem;
+}
+
+.section-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.section-icon-box {
+  display: inline-flex;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  background-color: #000;
+  color: #fff;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.section-text {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.summary-box {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+}
+
+.summary-box h4 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.summary-box ul {
+  padding-left: 1.5rem;
+  margin-bottom: 0;
+}
+
+.summary-box li {
+  margin-bottom: 0.5rem;
+}
+
+.page-header {
+  padding: 3rem 0;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Button Styles */
+.btn-custom {
+  background-color: #000;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+
+/* Card Styles */
+.transition-hover {
+  transition: transform 0.3s ease;
+}
+
+.transition-hover:hover {
+  transform: translateY(-5px);
+}

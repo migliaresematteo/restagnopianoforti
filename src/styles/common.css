@@ -1,0 +1,47 @@
+.elegant-hr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.hr-line {
+  height: 1px;
+  background-color: #dee2e6;
+  flex-grow: 1;
+  max-width: 100px;
+}
+
+.hr-icon {
+  color: #6c757d;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.transition-hover {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.transition-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.piano-card-image-wrapper img {
+  transition: transform 0.3s ease;
+}
+
+.piano-card:hover .piano-card-image-wrapper img {
+  transform: scale(1.05);
+}
+
+.btn-primary {
+  background-color: #1a1a1a;
+  border-color: #1a1a1a;
+}
+
+.btn-primary:hover {
+  background-color: #000;
+  border-color: #000;
+}
