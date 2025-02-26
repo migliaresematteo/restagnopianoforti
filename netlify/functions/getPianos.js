@@ -4,14 +4,34 @@ const matter = require('gray-matter');
 
 exports.handler = async (event) => {
   try {
-    // In Netlify's production environment, we need to use a different path
-    // The function is executed from the /var/task directory in Netlify
-    const contentDir = path.resolve(process.env.LAMBDA_TASK_ROOT || '.', '../../content/pianos');
-    console.log('Content directory path:', contentDir);
+    // Try multiple possible paths for the content directory
+    const possiblePaths = [
+      path.resolve(process.env.LAMBDA_TASK_ROOT || '.', '../../content/pianos'),
+      path.resolve(process.env.LAMBDA_TASK_ROOT || '.', '../content/pianos'),
+      path.resolve(process.env.LAMBDA_TASK_ROOT || '.', './content/pianos'),
+      path.resolve(__dirname, '../../content/pianos'),
+      path.resolve(__dirname, '../content/pianos'),
+      '/var/task/content/pianos',
+      '/opt/build/repo/content/pianos',
+      path.join(process.cwd(), 'content/pianos')
+    ];
     
-    // Check if directory exists
-    if (!fs.existsSync(contentDir)) {
-      console.error(`Directory does not exist: ${contentDir}`);
+    console.log('Possible content directory paths:');
+    possiblePaths.forEach(p => console.log(p));
+    
+    // Find the first path that exists
+    let contentDir = null;
+    for (const p of possiblePaths) {
+      if (fs.existsSync(p)) {
+        contentDir = p;
+        console.log('Found content directory:', contentDir);
+        break;
+      }
+    }
+    
+    // If no content directory is found, fallback to hardcoded data
+    if (!contentDir) {
+      console.error('No content directory found. Tried paths:', possiblePaths);
       
       // Fallback to hardcoded data if CMS data is not available
       return {
@@ -63,6 +83,9 @@ exports.handler = async (event) => {
         ])
       };
     }
+    
+    // List files in the content directory
+    console.log('Files in content directory:', fs.readdirSync(contentDir));
     
     const files = fs.readdirSync(contentDir);
     
