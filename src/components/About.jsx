@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import './About.css';
-import image from '../assets/Restagno-Pianoforti.jpg';
 import CustomButton from './common/CustomButton';
 
 const About = () => {
@@ -34,7 +33,7 @@ const About = () => {
             <div className="about-image-container">
               <div className="about-image-wrapper">
                 <img 
-                  src={image} 
+                  src="/images/Restagno-Pianoforti.jpg" 
                   alt="Laboratorio Restagno Pianoforti" 
                   className="about-image"
                 />

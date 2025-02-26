@@ -11,7 +11,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import HomeIcon from '@mui/icons-material/Home';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import logo from '../assets/logo_ok3.png';
 import './Navbar.css';
 
 const NavigationBar = ({ isPianoChatOpen }) => {
@@ -155,7 +154,7 @@ const NavigationBar = ({ isPianoChatOpen }) => {
       <Container>
         <Navbar.Brand as={Link} to="/" onClick={handleNavClick}>
           <img
-            src={logo}
+            src="/images/logo.png"
             alt="Restagno Pianoforti Logo"
             className="navbar-logo"
           />

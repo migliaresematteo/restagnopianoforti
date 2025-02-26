@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { pianos as pianosData } from '../data/pianos';
+import { fetchAllPianos } from '../api/pianos';
 import PianoCard from '../components/PianoCard';
 import PageHeader from '../components/common/PageHeader';
 import FilterCard from '../components/common/FilterCard';
@@ -14,21 +14,40 @@ const getBrand = (model) => {
   return model.split(' ')[0];
 };
 
-const brands = [...new Set(pianosData.map(piano => getBrand(piano.model)))];
-brands.unshift("Tutti");
-
-const types = ["Tutti", "Coda", "Verticale"];
-const conditions = ["Tutti", "Nuovo", "Usato", "Restaurato"];
-
 const Pianoforti = () => {
+  const [pianos, setPianos] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
     brand: "Tutti",
     type: "Tutti",
     condition: "Tutti",
     priceRange: [0, 200000]
   });
+  const [brands, setBrands] = useState(["Tutti"]);
+  const types = ["Tutti", "Verticale", "Coda"];
+  const conditions = ["Tutti", "Nuovo", "Usato", "Restaurato"];
 
-  const filteredPianos = pianosData.filter(piano => {
+  useEffect(() => {
+    const loadPianos = async () => {
+      try {
+        setLoading(true);
+        const data = await fetchAllPianos();
+        setPianos(data);
+        
+        // Extract unique brands
+        const uniqueBrands = [...new Set(data.map(piano => getBrand(piano.model)))];
+        setBrands(["Tutti", ...uniqueBrands]);
+      } catch (error) {
+        console.error('Error loading pianos:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    loadPianos();
+  }, []);
+
+  const filteredPianos = pianos.filter(piano => {
     const brand = getBrand(piano.model);
     const price = typeof piano.price === 'number' 
       ? piano.price 

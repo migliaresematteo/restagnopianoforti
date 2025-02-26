@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
-import { getPianoById, getRandomFeaturedPianos } from '../data/pianos';
+import { getPianoById, getRandomFeaturedPianos } from '../api/pianos';
 import FeaturedPianos from '../components/FeaturedPianos';
 import ImageGallery from '../components/common/ImageGallery';
 import PianoDetailsCard from '../components/common/PianoDetailsCard';
@@ -14,35 +14,67 @@ export default function PianoDetails() {
   const [mainImage, setMainImage] = useState('');
   const [featuredPianos, setFeaturedPianos] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const pianoData = getPianoById(id);
-    if (pianoData) {
-      setPiano(pianoData);
-      setMainImage(pianoData.images[0]);
-      setCurrentImageIndex(0);
-      setFeaturedPianos(getRandomFeaturedPianos(3, pianoData.id));
-    }
+    const loadPianoData = async () => {
+      try {
+        setLoading(true);
+        const pianoData = await getPianoById(id);
+        if (pianoData) {
+          setPiano(pianoData);
+          // If images is a string array, use it directly
+          // If it's an array of objects with image property (from CMS), extract the image paths
+          const imagePaths = Array.isArray(pianoData.images) 
+            ? pianoData.images.map(img => typeof img === 'string' ? img : img.image)
+            : [];
+          
+          setMainImage(imagePaths[0] || '');
+          setCurrentImageIndex(0);
+          
+          const featured = await getRandomFeaturedPianos(3, pianoData.id);
+          setFeaturedPianos(featured);
+        }
+      } catch (error) {
+        console.error('Error loading piano details:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    loadPianoData();
   }, [id]);
 
   const handlePrevImage = () => {
     if (piano) {
-      const newIndex = (currentImageIndex - 1 + piano.images.length) % piano.images.length;
+      const imagePaths = Array.isArray(piano.images) 
+        ? piano.images.map(img => typeof img === 'string' ? img : img.image)
+        : [];
+      
+      const newIndex = (currentImageIndex - 1 + imagePaths.length) % imagePaths.length;
       setCurrentImageIndex(newIndex);
-      setMainImage(piano.images[newIndex]);
+      setMainImage(imagePaths[newIndex]);
     }
   };
 
   const handleNextImage = () => {
     if (piano) {
-      const newIndex = (currentImageIndex + 1) % piano.images.length;
+      const imagePaths = Array.isArray(piano.images) 
+        ? piano.images.map(img => typeof img === 'string' ? img : img.image)
+        : [];
+      
+      const newIndex = (currentImageIndex + 1) % imagePaths.length;
       setCurrentImageIndex(newIndex);
-      setMainImage(piano.images[newIndex]);
+      setMainImage(imagePaths[newIndex]);
     }
   };
 
-  if (!piano) {
+  if (loading) {
     return <div className="container py-5">Caricamento...</div>;
+  }
+
+  if (!piano) {
+    return <div className="container py-5">Pianoforte non trovato</div>;
   }
 
   const infoBoxes = [

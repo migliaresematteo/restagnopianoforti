@@ -3,7 +3,6 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { KeyboardArrowDown } from '@mui/icons-material';
 import NavigationBar from './Navbar';
-import backgroundImg from '../assets/bgh.jpg';
 import './Header.css';
 
 const Header = ({ title, subtitle, ctaText, onCtaClick }) => {
@@ -11,7 +10,7 @@ const Header = ({ title, subtitle, ctaText, onCtaClick }) => {
     <>
       <motion.div 
         className="header-wrapper" 
-        style={{ backgroundImage: `url(${backgroundImg})` }}
+        style={{ backgroundImage: `url('/images/bgh.jpg')` }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}

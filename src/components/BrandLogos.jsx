@@ -1,12 +1,13 @@
 import React from 'react';
 import './BrandLogos.css';
-import yamaha from '../assets/yamaha.png';
-import steinway from '../assets/s&s.png';
-import bechstein from '../assets/bechstein.png';
-import kawai from '../assets/kawai.png';
 
 const BrandLogos = () => {
-  const logos = [yamaha, steinway, bechstein, kawai];
+  const logos = [
+    '/images/brands/yamaha.png',
+    '/images/brands/steinway.png',
+    '/images/brands/bechstein.png',
+    '/images/brands/kawai.png'
+  ];
   // Duplicate logos to ensure smooth infinite scroll
   const duplicatedLogos = [...logos, ...logos, ...logos];
 

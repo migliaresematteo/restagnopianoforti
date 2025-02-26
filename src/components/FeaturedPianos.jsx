@@ -1,19 +1,57 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { getRandomFeaturedPianos } from '../data/pianos';
+import { getRandomFeaturedPianos } from '../api/pianos';
 import PianoCard from './PianoCard';
 
 const FeaturedPianos = ({ pianos }) => {
-  const displayPianos = pianos || getRandomFeaturedPianos(3);
+  const [featuredPianos, setFeaturedPianos] = useState([]);
+  const [loading, setLoading] = useState(!pianos);
 
-  const adaptPianoData = (piano) => ({
-    ...piano,
-    name: piano.model,
-    image: piano.images[0],
-    year: piano.productionDate,
-    length: piano.dimensions.length,
-    height: piano.dimensions.height,
-  });
+  useEffect(() => {
+    if (!pianos) {
+      const loadFeaturedPianos = async () => {
+        try {
+          setLoading(true);
+          const data = await getRandomFeaturedPianos(3);
+          setFeaturedPianos(data);
+        } catch (error) {
+          console.error('Error loading featured pianos:', error);
+        } finally {
+          setLoading(false);
+        }
+      };
+      
+      loadFeaturedPianos();
+    }
+  }, [pianos]);
+
+  const displayPianos = pianos || featuredPianos;
+
+  const adaptPianoData = (piano) => {
+    // Handle CMS image format (array of objects with image property)
+    const images = Array.isArray(piano.images) 
+      ? piano.images.map(img => typeof img === 'string' ? img : img.image)
+      : [];
+      
+    return {
+      ...piano,
+      name: piano.model,
+      image: images[0] || '',
+      year: piano.productionDate,
+      length: piano.length,
+      height: piano.height,
+    };
+  };
+
+  if (loading) {
+    return (
+      <section className="featured-pianos py-5">
+        <Container>
+          <div className="text-center">Caricamento...</div>
+        </Container>
+      </section>
+    );
+  }
 
   return (
     <section className="featured-pianos py-5">

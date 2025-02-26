@@ -1,8 +1,5 @@
 import React from 'react';
 import './Biography.css';
-import a1908 from '../assets/1908.jpg';
-import accordatura from '../assets/restauro.webp';
-import saloon from '../assets/saloon.png';
 import BiographyHeader from '../components/Biography/BiographyHeader';
 import StatsSection from '../components/Biography/StatsSection';
 import HistorySection from '../components/Biography/HistorySection';
@@ -21,7 +18,7 @@ const Biography = () => {
         'Restagno Pianoforti sorge nel 1908 per iniziativa dell\'allora ventottenne Vincenzo Restagno, che aveva appreso il mestiere presso la nota fabbrica di organi da chiesa "VEGEZZI e BOSSI", raggiungendo il posto di responsabile forniture e accordature per i nuovi impianti in Italia e all\'estero.',
         'Sita originariamente all\'88 di Corso Vittorio Emanuele II e poi trasferitasi al vicino n. 90 dove rimarrà sino al 1988, la ditta si specializza nel ramo pianoforti, harmoniums, celestas ed autopiani, allora in voga.'
       ],
-      image: a1908,
+      image: '/images/biography/1908.jpg',
       alt: 'Storica foto del negozio Restagno'
     },
     {
@@ -34,7 +31,7 @@ const Biography = () => {
         'Nel 1919, finita la militarizzazione della fabbrica acquistata durante la prima guerra mondiale, viene iniziata la costruzione in proprio (5 modelli) e mezza coda, nonché di piccoli harmoniums.',
         'La fabbrica, con una settantina di dipendenti, vanta di una capacità produttiva di una decina di strumenti al mese. Il titolare viene nominato presidente dell\'associazione nazionale costruttori strumenti musicali aderenti alla lega costruttori della Confindustria.'
       ],
-      image: saloon,
+      image: '/images/biography/saloon.png',
       alt: 'La fabbrica storica Restagno',
       reverse: true
     },
@@ -49,7 +46,7 @@ const Biography = () => {
         'Nel 1953, l\'attività continua come comunione ereditaria dei figli, poi nel 1962 si consolida nelle mani del sig. Stefano Restagno, affiancato in seguito dai figli Carlo e Maurizio, attuali titolari.',
         'Nel 1988 l\'azienda viene trasferita nei nuovi e funzionali locali di Via Sacchi, vicino Porta Nuova, dove sono a disposizione della clientela ampie e selezionate scelte di strumenti musicali tradizionali e moderni.'
       ],
-      image: accordatura,
+      image: '/images/biography/accordatura.webp',
       alt: 'Il negozio Restagno oggi'
     }
   ];

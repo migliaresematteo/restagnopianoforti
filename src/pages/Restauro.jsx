@@ -10,40 +10,13 @@ import RestorationExample from '../components/RestorationExample';
 import SEO from '../components/common/SEO';
 import '../components/common/styles.css';
 import './Restauro.css';
-import rest1 from '../assets/rest1.jpeg';
-import rest2 from '../assets/rest2.jpeg';
-import rest3 from '../assets/rest3.jpeg';
-import rest4 from '../assets/rest4.jpeg';
-
-import schied1 from '../assets/restauri/schied1.jpg';
-import schied2 from '../assets/restauri/schied2.png';
-import schied3 from '../assets/restauri/schied3.png';
-import schied4 from '../assets/restauri/schied4.png';
-import schied5 from '../assets/restauri/schied5.png';
-import schied6 from '../assets/restauri/schied6.png';
-import schied7 from '../assets/restauri/schied7.png';
-
-import gav1 from '../assets/restauri/gav1.png';
-import gav2 from '../assets/restauri/gav2.png';
-import gav3 from '../assets/restauri/gav3.png';
-import gav4 from '../assets/restauri/gav4.png';
-import gav5 from '../assets/restauri/gav5.png';
-import gav6 from '../assets/restauri/gav6.png';
-
-import all1 from '../assets/restauri/all1.png';
-import all2 from '../assets/restauri/all2.png';
-import all3 from '../assets/restauri/all3.png';
-import all4 from '../assets/restauri/all4.png';
-import all5 from '../assets/restauri/all5.png';
-import all6 from '../assets/restauri/all6.png';
-import all7 from '../assets/restauri/all7.png';
 
 const sections = [
   {
     title: 'La Nostra Esperienza',
     icon: BuildIcon,
     content: 'Durante la nostra attività professionale abbiamo eseguito innumerevoli riparazioni e restauri di vecchi pianoforti. A volte semplici regolazioni ma frequentemente riparazioni di vecchi pianoforti con gravi difetti.',
-    image: rest1,
+    image: '/images/restauro/rest1.jpeg',
     imageAlt: 'Restauro pianoforte',
     listTitle: 'Interventi Principali',
     listItems: [
@@ -57,7 +30,7 @@ const sections = [
     title: 'Costi e Considerazioni',
     icon: ConstructionIcon,
     content: 'I costi di restauro sono rimasti alti poiché si tratta di lavoro che va eseguito interamente a mano. Inoltre i prezzi dei ricambi che provengono dalla Germania continuano, anche se più lentamente, a lievitare.',
-    image: rest2,
+    image: '/images/restauro/rest2.jpeg',
     imageAlt: 'Dettaglio costi restauro',
     listTitle: 'Fattori di Costo',
     listItems: [
@@ -72,7 +45,7 @@ const sections = [
     title: 'Pianoforti Verticali vs Code',
     icon: PianoIcon,
     content: 'Quando si tratta di un pianoforte di famiglia al quale si è molto affezionati, specie se di buona marca tedesca, potrebbe essere ragionevole esaminare la possibilità di un restauro.',
-    image: rest3,
+    image: '/images/restauro/rest3.jpeg',
     imageAlt: 'Pianoforte verticale e a coda',
     listTitle: 'Considerazioni per il Restauro',
     listItems: [
@@ -86,7 +59,7 @@ const sections = [
     title: 'Il Suono e l\'Evoluzione',
     icon: MusicNoteIcon,
     content: 'Un pianoforte di 100 anni fa non ha lo stesso suono di un pianoforte di oggi. A quell\'epoca i pianoforti avevano una timbrica piena (specie nei bassi), corposa e, non di rado, anche morbida.',
-    image: rest4,
+    image: '/images/restauro/rest4.jpeg',
     imageAlt: 'Evoluzione del suono',
     listTitle: 'Caratteristiche Sonore',
     listItems: [
@@ -103,17 +76,17 @@ const restorationExamples = [
   {
     title: 'Restauro SCHIEDMAYER d\'epoca',
     description: 'Descrizione',
-    images: [schied1, schied2, schied3, schied4, schied5, schied6, schied7]
+    images: ['/images/restauro/examples/schied1.jpg', '/images/restauro/examples/schied2.png', '/images/restauro/examples/schied3.png', '/images/restauro/examples/schied4.png', '/images/restauro/examples/schied5.png', '/images/restauro/examples/schied6.png', '/images/restauro/examples/schied7.png']
   },
   {
     title: 'Restauro Gaveau',
     description: 'Descrizione',
-    images: [gav1, gav2, gav3, gav4, gav5, gav6]
+    images: ['/images/restauro/examples/gav1.png', '/images/restauro/examples/gav2.png', '/images/restauro/examples/gav3.png', '/images/restauro/examples/gav4.png', '/images/restauro/examples/gav5.png', '/images/restauro/examples/gav6.png']
   },
   {
     title: 'Pianoforte alluvionato',
     description: 'Descrizione',
-    images: [all1, all2, all3, all4, all5, all6, all7]
+    images: ['/images/restauro/examples/all1.png', '/images/restauro/examples/all2.png', '/images/restauro/examples/all3.png', '/images/restauro/examples/all4.png', '/images/restauro/examples/all5.png', '/images/restauro/examples/all6.png', '/images/restauro/examples/all7.png']
   }
 ];
 
