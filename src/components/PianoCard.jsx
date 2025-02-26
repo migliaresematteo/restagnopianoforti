@@ -11,11 +11,6 @@ import {
 import './PianoCard.css';
 
 const PianoCard = ({ piano }) => {
-  // Ensure price is correctly formatted for parsing
-  const parsedPrice = typeof piano.price === 'string' 
-    ? parseFloat(piano.price.replace(/\./g, '').replace(',', '.'))
-    : piano.price;
-
   return (
     <Link to={`/pianoforti/${piano.id}`} className="text-decoration-none">
       <motion.div 
@@ -35,7 +30,7 @@ const PianoCard = ({ piano }) => {
             transition={{ duration: 0.3 }}
           />
           
-          {parsedPrice > 2000 && (
+          {parseFloat(piano.price.replace('.', '')) > 2000 && (
             <motion.div 
               className="insurance-badge"
               initial={{ opacity: 0, x: -20 }}

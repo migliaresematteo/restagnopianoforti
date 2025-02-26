@@ -1,10 +1,5 @@
 [build]
   functions = "netlify/functions"
-  publish = "dist"
-  command = "npm run build"
-  
-  # Include the content directory in the build
-  included_files = ["content/**"]
 
 [functions]
   node_bundler = "esbuild"

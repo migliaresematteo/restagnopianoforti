@@ -32,14 +32,11 @@ const ImageGallery = ({
     position: 'relative'
   } : {};
 
-  // Handle CMS image format (could be a string or an object with image property)
-  const imageSrc = typeof image === 'string' ? image : (image?.image || '');
-
   return (
     <div className={`card border-0 shadow-sm overflow-hidden ${className}`}>
       <div className="position-relative" style={containerStyles}>
         <img
-          src={imageSrc}
+          src={image}
           alt={alt}
           className={isMobile ? "position-absolute top-0 start-0 w-100 h-100" : "card-img-top"}
           style={commonImageStyles}
