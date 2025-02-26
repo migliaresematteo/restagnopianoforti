@@ -18,13 +18,21 @@ export const fetchAllPianos = async () => {
   
   // Use Netlify function in production
   try {
-    const response = await fetch('/.netlify/functions/getPianos');
+    // First try the main function
+    let response = await fetch('/.netlify/functions/getPianos');
+    
+    // If that fails, try the fallback function
     if (!response.ok) {
-      console.error('Netlify function returned non-OK response:', response.status, response.statusText);
+      console.log('Main function failed, trying fallback function');
+      response = await fetch('/.netlify/functions/getPianosFromFile');
+    }
+    
+    if (!response.ok) {
+      console.error('Both functions failed:', response.status, response.statusText);
       const errorText = await response.text();
       console.error('Error response body:', errorText);
       
-      // Fallback to hardcoded data if the function fails
+      // Fallback to hardcoded data if both functions fail
       return [
         {
           id: 1,
@@ -67,6 +75,7 @@ export const fetchAllPianos = async () => {
         }
       ];
     }
+    
     return await response.json();
   } catch (error) {
     console.error('Error fetching pianos:', error);
