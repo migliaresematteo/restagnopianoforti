@@ -365,23 +365,6 @@ export const pianos = [
   },
   {
     id: 17,
-    model: "YAMAHA G3",
-    images: [g3_1, g3_2, g3_3],
-    color: "Nero",
-    colorCode: "#000000",
-    type: "Coda",
-    condition: "Usato",
-    productionDate: "1974",
-    dimensions: {
-      height: "NaN cm",
-      length: "NaN cm",
-    },
-    price: "6.980",
-    description: "Questo esemplare è stato costruito nel 1974 ed ha quindi esattamente cinquant’anni.Era stato acquistato,già usato, da un nostro cliente,bravissimo pianista ma già anziano,circa vent’anni fa.Ora non essendoci più lui,la figlia mi ha chiesto di occuparmene.Abbiamo visto che i martelletti erano piuttosto consumati(cosa normale per un pianoforte di cinquant’anni) ed abbiamo deciso di mandare la martelliera in Germania da dove è tornato con una bella feltratura nuova.Abbiamo inoltre registrato tutta la meccanica riportandola alle sue regolazioni originali.Ora è pronto per affrontare una nuova vita ed accompagnare lo studente di Conservatorio fino agli esami od anche per allietare le ore libere del semplice amatore.",
-    featured: true
-  },
-  {
-    id: 18,
     model: "KAWAI KG2",
     images: [kg_1, kg_2],
     color: "Nero",
@@ -398,7 +381,7 @@ export const pianos = [
     featured: true
   },
   {
-    id: 19,
+    id: 18,
     model: "BECHSTEIN 1/2 coda",
     images: [bech1_1, bech1_2, bech1_3, bech1_4, bech1_5],
     color: "Nero",
@@ -415,7 +398,7 @@ export const pianos = [
     featured: true
   },
   {
-    id: 20,
+    id: 19,
     model: "SAUTER 113",
     images: [sauter_1],
     color: "Noce",
@@ -432,7 +415,7 @@ export const pianos = [
     featured: true
   },
   {
-    id: 21,
+    id: 20,
     model: "Pianoforte MORRISON",
     images: [morrison_1],
     color: "Mogano",
@@ -449,7 +432,7 @@ export const pianos = [
     featured: true
   },
   {
-    id: 22,
+    id: 21,
     model: "BECHSTEIN mod. 7",
     images: [bech2_1],
     color: "Nero",
@@ -466,7 +449,7 @@ export const pianos = [
     featured: true
   },
   {
-    id: 23,
+    id: 22,
     model: "KAPS 1/2 coda",
     images: [kaps_1, kaps_2, kaps_3],
     color: "Nero",
@@ -483,7 +466,7 @@ export const pianos = [
     featured: true
   },
   {
-    id: 24,
+    id: 23,
     model: "Pianoforte A.GRAND BERLIN",
     images: [grandb_1, grandb_2, grandb_3],
     color: "Nero",
@@ -500,7 +483,7 @@ export const pianos = [
     featured: true
   },
   {
-    id: 25,
+    id: 24,
     model: "YAMAHA U3",
     images: [u3_1, u3_2, u3_3, u3_4, u3_5, u3_6],
     color: "Nero",
@@ -512,12 +495,12 @@ export const pianos = [
       height: "110 cm",
       length: "NaN cm",
     },
-    price: "2.750",
+    price: "4.800",
     description: "Il modello U3 della YAMAHA è un classico senza tempo.L’ampiezza della tavola armonica e la lunghezza delle corde gli consentono di sviluppare una sonorità da piccolo coda mentre la tastiera,con qualche grammo in più di pesatura rispetto ai modelli più piccoli,unitamente alla proverbiale prontezza e precisione della meccanica YAMAHA,,lo rende adatto anche alla preparazione degli esami di Conservatorio per chi non abbia la possibilità di servirsi di un mezza coda.Questo esemplare è stato fabbricato nel 1983 ed è arrivato adesso dal Giappone dove ha beneficiato di una completa ristrutturazione,esegita in fabbrica, con sostituzione di tutte le parti usurate come martelletti,smorze,feltri,pelli,guarnizioni ma anche di parti non usurate ottenendo quindi lo status di PARI AL NUOVO. Ora è pronto per affrontare una nuova vita ed accompagnare lo studente fino agli esami di Conservatorio.",
     featured: true
   },
   {
-    id: 26,
+    id: 25,
     model: "HERMANN 112",
     images: [hermann_1, hermann_2, hermann_3, hermann_4],
     color: "Bianco",

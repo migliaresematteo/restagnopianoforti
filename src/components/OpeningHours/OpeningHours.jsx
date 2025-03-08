@@ -22,32 +22,32 @@ const OpeningHours = () => {
           <tr>
             <td>Martedì</td>
             <td>9:00 - 12:30 | 15:30 - 19:30</td>
-            <td></td>
+            <td>Consigliato appuntamento</td>
           </tr>
           <tr>
             <td>Mercoledì</td>
             <td>9:00 - 12:30 | 15:30 - 19:30</td>
-            <td></td>
+            <td>Consigliato appuntamento</td>
           </tr>
           <tr>
             <td>Giovedì</td>
             <td>9:00 - 12:30 | 15:30 - 19:30</td>
-            <td></td>
+            <td>Consigliato appuntamento</td>
           </tr>
           <tr>
             <td>Venerdì</td>
             <td>9:00 - 12:30 | 15:30 - 19:30</td>
-            <td></td>
+            <td>Consigliato appuntamento</td>
           </tr>
           <tr>
             <td>Sabato</td>
             <td>9:00 - 12:30 | 15:30 - 19:30</td>
-            <td></td>
+            <td>Consigliato appuntamento</td>
           </tr>
           <tr>
             <td>Domenica</td>
             <td>Chiuso</td>
-            <td></td>
+            <td>Solo su appuntamento</td>
           </tr>
         </tbody>
       </table>
